@@ -8,7 +8,7 @@ export const UserThemeContext = createContext(null);
 const initialState = {
   themeClass: "light",
   language: "spanish",
-  themeStyle: Light,
+  themeStyle: Dark,
   ...spanish,
 };
 

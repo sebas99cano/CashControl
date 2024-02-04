@@ -21,6 +21,7 @@ import { SlGraph } from "react-icons/sl";
 import { BsBarChartLine } from "react-icons/bs";
 import { AiOutlineCalculator } from "react-icons/ai";
 import { BsCalendarCheck } from "react-icons/bs";
+import { IoIosArrowForward } from "react-icons/io";
 
 import logo from "../assets/logoPig.png";
 import fondo from "../assets/fondo.svg";
@@ -82,4 +83,5 @@ export const variables = {
   iconBars: BsBarChartLine,
   iconCalculator: AiOutlineCalculator,
   iconCheck: BsCalendarCheck,
+  iconArrowRight: IoIosArrowForward,
 };

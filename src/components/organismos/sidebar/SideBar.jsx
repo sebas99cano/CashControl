@@ -5,26 +5,44 @@ import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../../context/AuthContext";
 
-const SideBar = () => {
+const SideBar = ({ state, setState }) => {
   const [authState] = useContext(AuthContext);
   const routesList = MyRoutes({ authState });
   return (
-    <Main>
-      <Container>
+    <Main $isOpen={state}>
+      <span className="sidebarButton" onClick={() => setState(!state)}>
+        {<variables.iconArrowRight />}
+      </span>
+      <Container $isOpen={state} className={state ? "active" : ""}>
         <div className="logoContent">
           <div className="logoImg">
             <img src={variables.logo} />
           </div>
-          <h2>CashControl</h2>
+          <h2>Cash Control</h2>
         </div>
 
-        {routesList.map(({ isHidden, path, name, icon, text }) => {
+        {routesList.map(({ isHidden, path, name, icon, text }, index) => {
           if (isHidden) return;
+
           return (
-            <NavLink to={path} key={name}>
-              <div className="linkIcon">{icon}</div>
-              <span>{text}</span>
-            </NavLink>
+            <>
+              {index === 5 && <Divider />}
+              <div
+                className={state ? "linkContainer active" : "linkContainer"}
+                key={name}
+              >
+                <NavLink
+                  to={path}
+                  key={name}
+                  className={({ isActive }) =>
+                    `link${isActive ? ` active` : ``}`
+                  }
+                >
+                  <div className="linkIcon">{icon}</div>
+                  {state && <span>{text}</span>}
+                </NavLink>
+              </div>
+            </>
           );
         })}
         <Divider />
@@ -40,12 +58,105 @@ const Container = styled.div`
   z-index: 1;
   height: 100%;
   width: 65px;
-  transition: 0.1s ease-in-out;
-  overflow-y: auto;
-  overflow-x: hidden;
+  transition: all 0.3s ease-in-out;
+  &.active {
+    width: 200px;
+  }
+  .logoContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 60px;
+    .logoImg {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      cursor: pointer;
+      transition: all 0.5s ease-in-out;
+      transform: ${({ $isOpen }) => ($isOpen ? `scale(0.7)` : `scale(1.5)`)}
+        rotate(${(props) => props.theme.logoRotate});
+      img {
+        width: 100%;
+        animation: floating 1.7s ease-in-out infinite alternate;
+      }
+    }
+    h2 {
+      display: ${({ $isOpen }) => ($isOpen ? `block` : `none`)};
+    }
+    @keyframes floating {
+      0% {
+        transform: translate(0, 0px);
+      }
+      50% {
+        transform: translate(0, 4px);
+      }
+      100% {
+        transform: translate(0, 0px);
+      }
+    }
+  }
+  .linkContainer {
+    margin: 5px 0;
+    transition: all 0.3s;
+    padding: 0 5%;
+    position: relative;
+    &:hover {
+      background: ${(props) => props.theme.bgAlpha};
+    }
+    .link {
+      display: flex;
+      align-items: center;
+      justify-content: ${({ $isOpen }) => ($isOpen ? `start` : `center`)};
+      text-decoration: none;
+      padding: calc(${() => variables.smSpacing} - 2px) 0;
+      color: ${(props) => props.theme.text};
+      height: 60px;
+      .linkIcon {
+        padding: ${() => variables.smSpacing} ${() => variables.smSpacing};
+        display: flex;
+        svg {
+          font-size: 25px;
+        }
+      }
+      &.active {
+        color: ${(props) => props.theme.bg5};
+        &::before {
+          content: "";
+          position: absolute;
+          height: 100%;
+          background: ${(props) => props.theme.bg5};
+          width: 4px;
+          border-radius: 10px;
+          left: 0;
+        }
+      }
+    }
+  }
 `;
 
-const Main = styled.div``;
+const Main = styled.div`
+  .sidebarButton {
+    position: fixed;
+    top: 75px;
+    left: 50px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: ${(props) => props.theme.bgTgRight};
+    box-shadow: 0 0 4px ${(props) => props.theme.bg3},
+      0 0 7px ${(props) => props.theme.bg};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.35s;
+    z-index: 2;
+    transform: ${({ $isOpen }) =>
+      $isOpen ? `translateX(130px) rotate(3.142rad)` : `initial`};
+    color: ${(props) => props.theme.text};
+  }
+`;
 
 const Divider = styled.div`
   height: 1px;

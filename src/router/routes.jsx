@@ -1,8 +1,13 @@
 import { lazy } from "react";
 import { Navigate } from "react-router-dom";
-import { AiOutlineApartment, AiOutlineHome } from "react-icons/ai";
+import {
+  AiOutlineApartment,
+  AiOutlineHome,
+  AiOutlineSetting,
+} from "react-icons/ai";
 import { MdOutlineAnalytics } from "react-icons/md";
 import { RiDashboard3Line } from "react-icons/ri";
+import { TbPig } from "react-icons/tb";
 export const PrivateRoute = ({ authState, children }) => {
   return authState.uid ? children : <Navigate to={"/"} />;
 };
@@ -38,7 +43,7 @@ export const MyRoutes = ({ authState }) => [
     children: null,
     element: (
       <PrivateRoute authState={authState}>
-        <Home />
+        <h1>Categorías</h1>
       </PrivateRoute>
     ),
   },
@@ -52,7 +57,7 @@ export const MyRoutes = ({ authState }) => [
     children: null,
     element: (
       <PrivateRoute authState={authState}>
-        <Home />
+        <h1>Movimientos</h1>
       </PrivateRoute>
     ),
   },
@@ -66,7 +71,7 @@ export const MyRoutes = ({ authState }) => [
     children: null,
     element: (
       <PrivateRoute authState={authState}>
-        <Home />
+        <h1>Informes</h1>
       </PrivateRoute>
     ),
   },
@@ -80,7 +85,35 @@ export const MyRoutes = ({ authState }) => [
     children: null,
     element: (
       <PrivateRoute authState={authState}>
-        <Home />
+        <h1>Dashboard</h1>
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: "/config",
+    name: "configuration",
+    icon: <AiOutlineSetting />,
+    text: "Configuración",
+    disabled: false,
+    isHidden: false,
+    children: null,
+    element: (
+      <PrivateRoute authState={authState}>
+        <h1>Configuración</h1>
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: "/about",
+    name: "about",
+    icon: <TbPig />,
+    text: "Acerca de",
+    disabled: false,
+    isHidden: false,
+    children: null,
+    element: (
+      <PrivateRoute authState={authState}>
+        <h1>Acerca de</h1>
       </PrivateRoute>
     ),
   },

@@ -57,7 +57,7 @@ export const Dark = {
   colorToggle: "rgb(52, 131, 235)",
   translateToggle: "-12px",
   primary: "rgb(52, 131, 235)",
-  logoRotate: "360deg",
+  logoRotate: "-360deg",
   slideOffset: "5px",
   sizeofIcon: "22px",
   colorSubtitle: "#b7b7b7",

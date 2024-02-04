@@ -1,5 +1,5 @@
 import { Routes } from "react-router-dom";
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 
 import useApp from "./useApp";
 import styled from "styled-components";
@@ -9,11 +9,11 @@ import MenuHamburger from "../components/organismos/sidebar/MenuHamburger";
 
 function App() {
   const { routesList } = useApp();
-
+  const [isOpenSideBar, setIsOpenSideBar] = useState(false);
   return (
-    <Container>
+    <Container className={isOpenSideBar ? "active" : ""}>
       <div className="contentSideBar">
-        <SideBar />
+        <SideBar state={isOpenSideBar} setState={setIsOpenSideBar} />
       </div>
       <div className="ContentMenuHamburger">
         <MenuHamburger />
@@ -31,7 +31,7 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   background: ${({ theme }) => theme.bgTotal};
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
   .contentSideBar {
     display: none;
   }
@@ -42,6 +42,9 @@ const Container = styled.div`
   }
   @media ${Device.tablet} {
     grid-template-columns: 65px 1fr;
+    &.active {
+      grid-template-columns: 200px 1fr;
+    }
     .contentSideBar {
       display: block;
     }
