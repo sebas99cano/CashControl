@@ -1,8 +1,7 @@
-import { Route, Routes } from "react-router-dom";
-import { Suspense } from "react";
+import { Route } from "react-router-dom";
 import { MyRoutes } from "./routes";
 
-function App() {
+const useApp = () => {
   const getRoutes = (routes) => {
     return routes.map((route) => {
       if (route.children && route.children.length > 0) {
@@ -22,14 +21,7 @@ function App() {
   };
 
   const routesList = getRoutes(MyRoutes());
+  return { routesList };
+};
 
-  return (
-    <>
-      <Suspense fallback={<></>}>
-        <Routes>{routesList}</Routes>
-      </Suspense>
-    </>
-  );
-}
-
-export default App;
+export default useApp;

@@ -9,9 +9,24 @@ export const PublicRoute = ({ children }) => {
   return sessionInfo ? <Navigate to={"/home"} /> : children;
 };
 
-const LogIn = lazy(() => import("./pages/SignIn/SignIn"));
+const LogIn = lazy(() => import("../pages/signIn/SignIn"));
+const Home = lazy(() => import("../pages/home/Home"));
 
 export const MyRoutes = () => [
+  {
+    path: "/home",
+    name: "home",
+    icon: null,
+    text: "",
+    disabled: false,
+    isHidden: true,
+    children: null,
+    element: (
+      <PublicRoute>
+        <Home />
+      </PublicRoute>
+    ),
+  },
   {
     path: "/",
     name: "signIn",

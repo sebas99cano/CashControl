@@ -1,11 +1,10 @@
-import { SaveButton } from "../../components/moleculas/SaveButton";
+import SignInTemplate from "../../components/templates/SignInTemplate";
 
 const SignIn = () => {
   return (
-    <div>
-      hi
-      <SaveButton />
-    </div>
+    <>
+      <SignInTemplate />
+    </>
   );
 };
 

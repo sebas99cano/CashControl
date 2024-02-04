@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import { Icon } from "../atomos/Icon";
 
 export const SaveButton = ({ buttonFunction, title, bgColor, icon }) => (
-  <Container>
-    <span className="icon">{icon}</span>
+  <Container bgColor={bgColor}>
+    <Icon>{icon}</Icon>
     <span className="btn" onClick={buttonFunction}>
       {title}
     </span>
@@ -15,4 +16,7 @@ const Container = styled.button`
   align-items: center;
   text-decoration: none;
   border: none;
+  .btn {
+    background-color: ${(props) => props.bgColor};
+  }
 `;
