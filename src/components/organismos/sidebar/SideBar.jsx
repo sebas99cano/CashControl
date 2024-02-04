@@ -4,6 +4,7 @@ import { MyRoutes } from "../../../router/routes";
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../../context/AuthContext";
+import SideBarCard from "./SideBarCard";
 
 const SideBar = ({ state, setState }) => {
   const [authState] = useContext(AuthContext);
@@ -41,6 +42,7 @@ const SideBar = ({ state, setState }) => {
           );
         })}
         <Divider />
+        {state && <SideBarCard />}
       </Container>
     </Main>
   );
@@ -54,6 +56,16 @@ const Container = styled.div`
   height: 100%;
   width: 65px;
   transition: all 0.3s ease-in-out;
+  overflow-y: auto;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    width: 6px;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: ${(props) => props.theme.colorScroll};
+    border-radius: 10px;
+  }
   &.active {
     width: 200px;
   }

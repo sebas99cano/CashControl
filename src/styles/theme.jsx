@@ -29,6 +29,7 @@ export const Light = {
   slideOffset: "5px",
   sizeofIcon: "22px",
   colorSubtitle: "#2c2c2c",
+  colorScroll: "#cac9ca",
 };
 export const Dark = {
   body: "#202020",
@@ -61,4 +62,5 @@ export const Dark = {
   slideOffset: "5px",
   sizeofIcon: "22px",
   colorSubtitle: "#b7b7b7",
+  colorScroll: "#727272",
 };
