@@ -1,18 +1,16 @@
 import { lazy } from "react";
 import { Navigate } from "react-router-dom";
-export const PrivateRoute = ({ children }) => {
-  const sessionInfo = JSON.parse(sessionStorage.getItem("storage"));
-  return sessionInfo ? children : <Navigate to={"/"} />;
+export const PrivateRoute = ({ authState, children }) => {
+  return authState.uid ? children : <Navigate to={"/"} />;
 };
-export const PublicRoute = ({ children }) => {
-  const sessionInfo = JSON.parse(sessionStorage.getItem("storage"));
-  return sessionInfo ? <Navigate to={"/home"} /> : children;
+export const PublicRoute = ({ authState, children }) => {
+  return authState.uid ? <Navigate to={"/home"} /> : children;
 };
 
 const LogIn = lazy(() => import("../pages/signIn/SignIn"));
 const Home = lazy(() => import("../pages/home/Home"));
 
-export const MyRoutes = () => [
+export const MyRoutes = ({ authState }) => [
   {
     path: "/home",
     name: "home",
@@ -22,9 +20,9 @@ export const MyRoutes = () => [
     isHidden: true,
     children: null,
     element: (
-      <PublicRoute>
+      <PrivateRoute authState={authState}>
         <Home />
-      </PublicRoute>
+      </PrivateRoute>
     ),
   },
   {
@@ -36,7 +34,7 @@ export const MyRoutes = () => [
     isHidden: true,
     children: null,
     element: (
-      <PublicRoute>
+      <PublicRoute authState={authState}>
         <LogIn />
       </PublicRoute>
     ),
@@ -49,10 +47,6 @@ export const MyRoutes = () => [
     disabled: false,
     isHidden: true,
     children: null,
-    element: (
-      <PublicRoute>
-        <h1>Not Found</h1>
-      </PublicRoute>
-    ),
+    element: <h1>Not Found</h1>,
   },
 ];

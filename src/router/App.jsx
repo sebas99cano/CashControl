@@ -5,6 +5,7 @@ import useApp from "./useApp";
 
 function App() {
   const { routesList } = useApp();
+
   return (
     <>
       <Suspense fallback={<></>}>

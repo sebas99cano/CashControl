@@ -25,7 +25,7 @@ import { BsCalendarCheck } from "react-icons/bs";
 import logo from "../assets/logoPig.png";
 import fondo from "../assets/fondo.svg";
 
-export const v = {
+export const variables = {
   sidebarWidth: `300px`,
   sidebarWidthInitial: `10vw`,
   smSpacing: `8px`,
@@ -47,7 +47,7 @@ export const v = {
   green: `#53B257`,
   red: `#F54E41`,
   colorPrincipal: `#00F34A`,
-  colorSecundario: `#DAC1FF`,
+  colorSecondary: `#DAC1FF`,
   bpmaggie: `240px`,
   bplisa: `480px`,
   bpbart: `768px`,

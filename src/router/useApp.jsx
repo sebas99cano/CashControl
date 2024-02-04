@@ -1,7 +1,11 @@
 import { Route } from "react-router-dom";
 import { MyRoutes } from "./routes";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 const useApp = () => {
+  const [authState] = useContext(AuthContext);
+
   const getRoutes = (routes) => {
     return routes.map((route) => {
       if (route.children && route.children.length > 0) {
@@ -20,7 +24,7 @@ const useApp = () => {
     });
   };
 
-  const routesList = getRoutes(MyRoutes());
+  const routesList = getRoutes(MyRoutes({ authState }));
   return { routesList };
 };
 
