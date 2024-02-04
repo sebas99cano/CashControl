@@ -16,7 +16,7 @@ const SignInTemplate = () => {
   return (
     <Container $image={variables.bgImage}>
       <div className="contentCard">
-        <span className="version">version1.0</span>
+        <span className="version">version 1.0</span>
         <div className="contentImg">
           <img src={variables.logo} />
         </div>
