@@ -18,22 +18,17 @@ const SideBar = ({ state, setState }) => {
           <div className="logoImg">
             <img src={variables.logo} />
           </div>
-          <h2>Cash Control</h2>
+          <h2>Cash C</h2>
         </div>
 
         {routesList.map(({ isHidden, path, name, icon, text }, index) => {
           if (isHidden) return;
-
           return (
-            <>
+            <div key={index}>
               {index === 5 && <Divider />}
-              <div
-                className={state ? "linkContainer active" : "linkContainer"}
-                key={name}
-              >
+              <div className={state ? "linkContainer active" : "linkContainer"}>
                 <NavLink
                   to={path}
-                  key={name}
                   className={({ isActive }) =>
                     `link${isActive ? ` active` : ``}`
                   }
@@ -42,7 +37,7 @@ const SideBar = ({ state, setState }) => {
                   {state && <span>{text}</span>}
                 </NavLink>
               </div>
-            </>
+            </div>
           );
         })}
         <Divider />
@@ -66,15 +61,15 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 60px;
+    padding-bottom: 30px;
     .logoImg {
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 30px;
+      width: 35px;
       cursor: pointer;
       transition: all 0.5s ease-in-out;
-      transform: ${({ $isOpen }) => ($isOpen ? `scale(0.7)` : `scale(1.5)`)}
+      transform: ${({ $isOpen }) => ($isOpen ? `scale(0.9)` : `scale(1)`)}
         rotate(${(props) => props.theme.logoRotate});
       img {
         width: 100%;
@@ -83,6 +78,7 @@ const Container = styled.div`
     }
     h2 {
       display: ${({ $isOpen }) => ($isOpen ? `block` : `none`)};
+      margin-left: ${({ $isOpen }) => ($isOpen ? `10px` : `0px`)};
     }
     @keyframes floating {
       0% {
@@ -138,7 +134,7 @@ const Container = styled.div`
 const Main = styled.div`
   .sidebarButton {
     position: fixed;
-    top: 75px;
+    top: 60px;
     left: 50px;
     width: 32px;
     height: 32px;
