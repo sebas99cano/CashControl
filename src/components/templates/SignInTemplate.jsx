@@ -14,7 +14,7 @@ const SignInTemplate = () => {
       });
   };
   return (
-    <Container image={variables.bgImage}>
+    <Container $image={variables.bgImage}>
       <div className="contentCard">
         <span className="version">version1.0</span>
         <div className="contentImg">
@@ -38,7 +38,7 @@ const SignInTemplate = () => {
 };
 
 const Container = styled.div`
-  background-image: url(${(props) => props.image});
+  background-image: url(${(props) => props.$image});
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;

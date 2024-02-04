@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Icon } from "../atomos/Icon";
 
 export const SaveButton = ({ buttonFunction, title, bgColor, icon }) => (
-  <Container bgcolor={bgColor}>
+  <Container $bgColor={bgColor}>
     <Icon>{icon}</Icon>
     <span className="btn" onClick={buttonFunction}>
       {title}
@@ -19,7 +19,7 @@ const Container = styled.button`
   gap: 10px;
   background-color: initial;
   .btn {
-    background: ${(props) => props.bgcolor};
+    background: ${(props) => props.$bgColor};
     padding: 8px 16px;
     font-weight: 700;
     font-size: 18px;
