@@ -1,5 +1,4 @@
-import { createContext, useEffect, useReducer, useState } from "react";
-import { auth } from "../api/firebase/Auth";
+import { createContext, useReducer } from "react";
 
 export const AuthContext = createContext({});
 
@@ -28,29 +27,10 @@ const AuthReducer = (state = initialState, action) => {
 };
 
 export const AuthProvider = ({ children }) => {
-  const [authState, AuthDispatch] = useReducer(AuthReducer, initialState);
-  const [loadingUser, setLoadingUser] = useState(true);
-
-  useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        AuthDispatch({
-          type: "LOGIN_USER",
-          payload: user,
-        });
-      } else {
-        AuthDispatch({
-          type: "LOGOUT_USER",
-        });
-      }
-      setLoadingUser(false);
-    });
-  }, []);
-
-  if (loadingUser) return <h1>Cargando</h1>;
+  const [authState, authDispatch] = useReducer(AuthReducer, initialState);
 
   return (
-    <AuthContext.Provider value={[authState, AuthDispatch]}>
+    <AuthContext.Provider value={[authState, authDispatch]}>
       {children}
     </AuthContext.Provider>
   );

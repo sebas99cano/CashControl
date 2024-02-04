@@ -1,4 +1,4 @@
-import { Routes } from "react-router-dom";
+import { Routes, useLocation } from "react-router-dom";
 import { Suspense, useState } from "react";
 
 import useApp from "./useApp";
@@ -10,20 +10,27 @@ import MenuHamburger from "../components/organismos/sidebar/MenuHamburger";
 function App() {
   const { routesList } = useApp();
   const [isOpenSideBar, setIsOpenSideBar] = useState(false);
+  const { pathname } = useLocation();
   return (
-    <Container className={isOpenSideBar ? "active" : ""}>
-      <div className="contentSideBar">
-        <SideBar state={isOpenSideBar} setState={setIsOpenSideBar} />
-      </div>
-      <div className="ContentMenuHamburger">
-        <MenuHamburger />
-      </div>
-      <ContainerBody>
-        <Suspense fallback={<></>}>
-          <Routes>{routesList}</Routes>
-        </Suspense>
-      </ContainerBody>
-    </Container>
+    <>
+      {pathname != "/signIn" ? (
+        <Container className={isOpenSideBar ? "active" : ""}>
+          <div className="contentSideBar">
+            <SideBar state={isOpenSideBar} setState={setIsOpenSideBar} />
+          </div>
+          <div className="ContentMenuHamburger">
+            <MenuHamburger />
+          </div>
+          <ContainerBody>
+            <Suspense fallback={<></>}>
+              <Routes>{routesList}</Routes>
+            </Suspense>
+          </ContainerBody>
+        </Container>
+      ) : (
+        <Routes>{routesList}</Routes>
+      )}
+    </>
   );
 }
 

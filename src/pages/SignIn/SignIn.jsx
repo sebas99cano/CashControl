@@ -1,9 +1,11 @@
 import SignInTemplate from "../../components/templates/SignInTemplate";
+import useSignIn from "./useSignIn";
 
 const SignIn = () => {
+  const { signInGoogle } = useSignIn();
   return (
     <>
-      <SignInTemplate />
+      <SignInTemplate signInGoogle={signInGoogle} />
     </>
   );
 };

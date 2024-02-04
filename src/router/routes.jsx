@@ -9,10 +9,10 @@ import { MdOutlineAnalytics } from "react-icons/md";
 import { RiDashboard3Line } from "react-icons/ri";
 import { TbPig } from "react-icons/tb";
 export const PrivateRoute = ({ authState, children }) => {
-  return authState.uid ? children : <Navigate to={"/"} />;
+  return authState.uid ? children : <Navigate to={"/signIn"} />;
 };
 export const PublicRoute = ({ authState, children }) => {
-  return authState.uid ? <Navigate to={"/home"} /> : children;
+  return authState.uid ? <Navigate to={"/"} /> : children;
 };
 
 const LogIn = lazy(() => import("../pages/signIn/SignIn"));
@@ -20,7 +20,7 @@ const Home = lazy(() => import("../pages/home/Home"));
 
 export const MyRoutes = ({ authState }) => [
   {
-    path: "/home",
+    path: "/",
     name: "home",
     icon: <AiOutlineHome />,
     text: "Home",
@@ -118,7 +118,7 @@ export const MyRoutes = ({ authState }) => [
     ),
   },
   {
-    path: "/",
+    path: "/signIn",
     name: "signIn",
     icon: null,
     text: "",

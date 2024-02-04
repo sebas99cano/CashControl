@@ -1,18 +1,8 @@
 import styled from "styled-components";
 import { SaveButton } from "../moleculas/SaveButton";
 import { variables } from "../../styles/variables";
-import { googleSignInFirebase } from "../../api/firebase/Auth";
 
-const SignInTemplate = () => {
-  const signInGoogle = () => {
-    googleSignInFirebase()
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.error(error.message);
-      });
-  };
+const SignInTemplate = ({ signInGoogle }) => {
   return (
     <Container $image={variables.bgImage}>
       <div className="contentCard">
