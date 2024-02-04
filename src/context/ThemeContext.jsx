@@ -1,7 +1,9 @@
 import { createContext, useReducer } from "react";
+
 import spanish from "../languages/spanish";
 import { Dark, Light } from "../styles/theme";
-export const ThemeContext = createContext(null);
+import { ThemeProvider } from "styled-components";
+export const UserThemeContext = createContext(null);
 
 const initialState = {
   themeClass: "light",
@@ -10,7 +12,7 @@ const initialState = {
   ...spanish,
 };
 
-const ThemeReducer = (state = initialState, action) => {
+const UserThemeReducer = (state = initialState, action) => {
   switch (action.type) {
     case "DARK_MODE":
       return { ...state, themeClass: "dark", themeStyle: Dark };
@@ -25,14 +27,21 @@ const ThemeReducer = (state = initialState, action) => {
   }
 };
 
-export const ThemeProvider = ({ children }) => {
-  const [ThemeState, ThemeDispatch] = useReducer(ThemeReducer, initialState);
+export const UserThemeProvider = ({ children }) => {
+  const [ThemeState, ThemeDispatch] = useReducer(
+    UserThemeReducer,
+    initialState
+  );
 
   return (
-    <ThemeContext.Provider value={[ThemeState, ThemeDispatch]}>
-      {children}
-    </ThemeContext.Provider>
+    <UserThemeContext.Provider value={[ThemeState, ThemeDispatch]}>
+      <ThemeProvider
+        theme={ThemeState.themeStyle ? ThemeState.themeStyle : Light}
+      >
+        {children}
+      </ThemeProvider>
+    </UserThemeContext.Provider>
   );
 };
 
-export default ThemeProvider;
+export default UserThemeProvider;
