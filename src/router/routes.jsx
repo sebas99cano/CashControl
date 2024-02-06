@@ -17,7 +17,9 @@ export const PublicRoute = ({ authState, children }) => {
 
 const LogIn = lazy(() => import("../pages/signIn/SignIn"));
 const Home = lazy(() => import("../pages/home/Home"));
-
+const Configuration = lazy(() =>
+  import("../pages/configuration/Configuration")
+);
 export const MyRoutes = ({ authState }) => [
   {
     path: "/",
@@ -99,7 +101,7 @@ export const MyRoutes = ({ authState }) => [
     children: null,
     element: (
       <PrivateRoute authState={authState}>
-        <h1>Configuración</h1>
+        <Configuration />
       </PrivateRoute>
     ),
   },

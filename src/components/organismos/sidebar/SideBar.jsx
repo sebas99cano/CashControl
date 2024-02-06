@@ -147,7 +147,7 @@ const Main = styled.div`
   .sidebarButton {
     position: fixed;
     top: 60px;
-    left: 50px;
+    left: 45px;
     width: 32px;
     height: 32px;
     border-radius: 50%;
