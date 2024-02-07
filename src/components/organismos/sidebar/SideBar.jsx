@@ -22,7 +22,7 @@ const SideBar = ({ state, setState }) => {
           <h2>Cash C</h2>
         </div>
 
-        {routesList.map(({ isHidden, path, name, icon, text }, index) => {
+        {routesList.map(({ isHidden, path, icon, text }, index) => {
           if (isHidden) return;
           return (
             <div key={index}>

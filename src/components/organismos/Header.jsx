@@ -1,5 +1,10 @@
 import { ContentHeader } from "../atomos/ContentHeader";
+import UserData from "./UserData";
 
-export function Header({ stateConfig }) {
-  return <ContentHeader>HEADER</ContentHeader>;
+export function Header({ dropdownConfig }) {
+  return (
+    <ContentHeader>
+      <UserData dropdownConfig={dropdownConfig} />
+    </ContentHeader>
+  );
 }

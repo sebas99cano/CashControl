@@ -3,12 +3,15 @@ import { Header } from "../organismos/Header";
 import { useState } from "react";
 
 const ConfigurationTemplate = () => {
-  const [state, setState] = useState(false);
+  const [isOpenDropdown, setIsOpenDropdown] = useState(false);
   return (
     <Container>
       <header className="header">
         <Header
-          stateConfig={{ state: state, setState: () => setState(!state) }}
+          dropdownConfig={{
+            isOpenDropdown: isOpenDropdown,
+            setIsOpenDropdown: () => setIsOpenDropdown(!isOpenDropdown),
+          }}
         />
       </header>
       <section className="area1"></section>

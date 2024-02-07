@@ -5,9 +5,10 @@ import {
   AiOutlineHome,
   AiOutlineSetting,
 } from "react-icons/ai";
-import { MdOutlineAnalytics } from "react-icons/md";
+import { MdExitToApp, MdOutlineAnalytics } from "react-icons/md";
 import { RiDashboard3Line } from "react-icons/ri";
 import { TbPig } from "react-icons/tb";
+import { BiUserCircle } from "react-icons/bi";
 export const PrivateRoute = ({ authState, children }) => {
   return authState.uid ? children : <Navigate to={"/signIn"} />;
 };
@@ -29,6 +30,7 @@ export const MyRoutes = ({ authState }) => [
     disabled: false,
     isHidden: false,
     children: null,
+    isDropdownMenu: false,
     element: (
       <PrivateRoute authState={authState}>
         <Home />
@@ -43,6 +45,7 @@ export const MyRoutes = ({ authState }) => [
     disabled: false,
     isHidden: false,
     children: null,
+    isDropdownMenu: false,
     element: (
       <PrivateRoute authState={authState}>
         <h1>Categorías</h1>
@@ -57,6 +60,7 @@ export const MyRoutes = ({ authState }) => [
     disabled: false,
     isHidden: false,
     children: null,
+    isDropdownMenu: false,
     element: (
       <PrivateRoute authState={authState}>
         <h1>Movimientos</h1>
@@ -71,6 +75,7 @@ export const MyRoutes = ({ authState }) => [
     disabled: false,
     isHidden: false,
     children: null,
+    isDropdownMenu: false,
     element: (
       <PrivateRoute authState={authState}>
         <h1>Informes</h1>
@@ -85,6 +90,7 @@ export const MyRoutes = ({ authState }) => [
     disabled: false,
     isHidden: false,
     children: null,
+    isDropdownMenu: false,
     element: (
       <PrivateRoute authState={authState}>
         <h1>Dashboard</h1>
@@ -99,6 +105,37 @@ export const MyRoutes = ({ authState }) => [
     disabled: false,
     isHidden: false,
     children: null,
+    isDropdownMenu: true,
+    element: (
+      <PrivateRoute authState={authState}>
+        <Configuration />
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: "/profile",
+    name: "profile",
+    icon: <BiUserCircle />,
+    text: "Perfil",
+    disabled: false,
+    isHidden: true,
+    children: null,
+    isDropdownMenu: true,
+    element: (
+      <PrivateRoute authState={authState}>
+        <h1>Perfil</h1>
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: "/signOut",
+    name: "signOut",
+    icon: <MdExitToApp />,
+    text: "Cerrar sesión",
+    disabled: false,
+    isHidden: true,
+    children: null,
+    isDropdownMenu: true,
     element: (
       <PrivateRoute authState={authState}>
         <Configuration />
@@ -113,6 +150,7 @@ export const MyRoutes = ({ authState }) => [
     disabled: false,
     isHidden: false,
     children: null,
+    isDropdownMenu: false,
     element: (
       <PrivateRoute authState={authState}>
         <h1>Acerca de</h1>
@@ -127,6 +165,7 @@ export const MyRoutes = ({ authState }) => [
     disabled: false,
     isHidden: true,
     children: null,
+    isDropdownMenu: false,
     element: (
       <PublicRoute authState={authState}>
         <LogIn />
@@ -141,6 +180,7 @@ export const MyRoutes = ({ authState }) => [
     disabled: false,
     isHidden: true,
     children: null,
+    isDropdownMenu: false,
     element: <h1>Not Found</h1>,
   },
 ];
