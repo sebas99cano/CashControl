@@ -17,6 +17,15 @@ const UserService = {
       return consult.data();
     }
   },
+  updateUserSettings: async (settings, uid) => {
+    const docRef = doc(fireStore, `user/${uid}`);
+    await updateDoc(docRef, {
+      languagePreference: settings.languagePreference,
+      themePreference: settings.themePreference,
+    });
+    const consult = await getDoc(docRef);
+    return consult.data();
+  },
 };
 
 export default UserService;
