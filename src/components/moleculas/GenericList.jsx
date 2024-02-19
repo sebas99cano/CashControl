@@ -9,10 +9,10 @@ const GenericList = ({ data, setState, genericListFunction }) => {
   };
   return (
     <Container>
-      <section className="contentClose">
+      <section>
         <CloseButton buttonFunction={setState} />
       </section>
-      <section className="contentItems">
+      <section>
         {data.map((item, index) => {
           return (
             <ItemContainer key={index} onClick={() => selectOption(item)}>
@@ -32,8 +32,8 @@ const Container = styled.div`
   background: ${({ theme }) => theme.body};
   color: ${({ theme }) => theme.text};
   position: absolute;
-  margin-bottom: 15px;
-  top: 105%;
+  margin-top: 15px;
+  top: 88%;
   width: 100%;
   padding: 10px;
   border-radius: 10px;

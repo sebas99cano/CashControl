@@ -10,6 +10,7 @@ import { SaveButton } from "../moleculas/SaveButton";
 import SettingsClass from "../../class/user/SettingsClass";
 import { AuthContext } from "../../context/AuthContext";
 import UserService from "../../api/user/UserService";
+import ClickOutsideHandler from "../../utils/ClickOutsideHandler";
 
 const ConfigurationTemplate = () => {
   const [authState] = useContext(AuthContext);
@@ -55,38 +56,49 @@ const ConfigurationTemplate = () => {
       </header>
       <section className="area2">
         <h1>Ajustes</h1>
-        <ContentCard>
-          <span>Tema:</span>
-          <Select
-            text1={`${themeSelected.icon} ${themeSelected.name}`}
-            color={variables.colorSelect}
-            state={themeListState}
-            selectFunction={() => setThemeListState(!themeListState)}
-          />
-          {themeListState && (
-            <GenericList
-              data={ThemeData}
-              setState={() => setThemeListState(!themeListState)}
-              genericListFunction={setThemeSelected}
+        <ClickOutsideHandler
+          isOpen={themeListState}
+          onClose={() => setThemeListState(false)}
+        >
+          <ContentCard>
+            <span>Tema:</span>
+            <Select
+              text1={`${themeSelected.icon} ${themeSelected.name}`}
+              color={variables.colorSelect}
+              state={themeListState}
+              selectFunction={() => setThemeListState(!themeListState)}
             />
-          )}
-        </ContentCard>
-        <ContentCard>
-          <span>Idioma:</span>
-          <Select
-            text1={`${languageSelected.icon} ${languageSelected.name}`}
-            color={variables.colorSelect}
-            state={languageListState}
-            selectFunction={() => setLanguageListState(!languageListState)}
-          />
-          {languageListState && (
-            <GenericList
-              data={LanguageData}
-              setState={() => setLanguageListState(!languageListState)}
-              genericListFunction={setLanguageSelected}
+            {themeListState && (
+              <GenericList
+                data={ThemeData}
+                setState={() => setThemeListState(!themeListState)}
+                genericListFunction={setThemeSelected}
+              />
+            )}
+          </ContentCard>
+        </ClickOutsideHandler>
+        <ClickOutsideHandler
+          isOpen={languageListState}
+          onClose={() => setLanguageListState(false)}
+        >
+          <ContentCard>
+            <span>Idioma:</span>
+            <Select
+              text1={`${languageSelected.icon} ${languageSelected.name}`}
+              color={variables.colorSelect}
+              state={languageListState}
+              selectFunction={() => setLanguageListState(!languageListState)}
             />
-          )}
-        </ContentCard>
+            {languageListState && (
+              <GenericList
+                data={LanguageData}
+                setState={() => setLanguageListState(!languageListState)}
+                genericListFunction={setLanguageSelected}
+              />
+            )}
+          </ContentCard>
+        </ClickOutsideHandler>
+
         <SaveButton
           title={"Guardar"}
           bgColor={variables.colorSelect}

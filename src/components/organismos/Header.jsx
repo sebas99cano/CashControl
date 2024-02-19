@@ -1,31 +1,16 @@
-import { useEffect, useRef } from "react";
 import { ContentHeader } from "../atomos/ContentHeader";
 import UserData from "./UserData";
+import ClickOutsideHandler from "../../utils/ClickOutsideHandler";
 
 export function Header({ dropdownConfig }) {
-  const ref = useRef();
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (
-        ref.current &&
-        !ref.current.contains(event.target) &&
-        dropdownConfig.isOpenDropdown
-      ) {
-        dropdownConfig.setIsOpenDropdown();
-      }
-    };
-    document.addEventListener("click", handleClickOutside);
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, [dropdownConfig.isOpenDropdown]);
-
   return (
     <ContentHeader>
-      <div ref={ref}>
+      <ClickOutsideHandler
+        isOpen={dropdownConfig.isOpenDropdown}
+        onClose={dropdownConfig.setIsOpenDropdown}
+      >
         <UserData dropdownConfig={dropdownConfig} />
-      </div>
+      </ClickOutsideHandler>
     </ContentHeader>
   );
 }
