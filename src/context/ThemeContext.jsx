@@ -6,8 +6,8 @@ import { ThemeProvider } from "styled-components";
 export const UserThemeContext = createContext(null);
 
 const initialState = {
-  themeClass: "light",
-  language: "spanish",
+  themeClass: "LIGHT_MODE",
+  language: "SWITCH_TO_SPANISH",
   themeStyle: Dark,
   ...spanish,
 };
@@ -15,13 +15,13 @@ const initialState = {
 const UserThemeReducer = (state = initialState, action) => {
   switch (action.type) {
     case "DARK_MODE":
-      return { ...state, themeClass: "dark", themeStyle: Dark };
+      return { ...state, themeClass: "DARK_MODE", themeStyle: Dark };
     case "LIGHT_MODE":
-      return { ...state, themeClass: "light", themeStyle: Light };
+      return { ...state, themeClass: "LIGHT_MODE", themeStyle: Light };
     case "SWITCH_TO_ENGLISH":
-      return { ...state, language: "english", ...spanish };
+      return { ...state, language: "SWITCH_TO_ENGLISH", ...spanish };
     case "SWITCH_TO_SPANISH":
-      return { ...state, language: "spanish", ...spanish };
+      return { ...state, language: "SWITCH_TO_SPANISH", ...spanish };
     default:
       return { ...initialState };
   }
