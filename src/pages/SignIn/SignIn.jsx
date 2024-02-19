@@ -3,6 +3,7 @@ import useSignIn from "./useSignIn";
 
 const SignIn = () => {
   const { signInGoogle } = useSignIn();
+
   return (
     <>
       <SignInTemplate signInGoogle={signInGoogle} />

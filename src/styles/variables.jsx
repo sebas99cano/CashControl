@@ -49,6 +49,7 @@ export const variables = {
   red: `#F54E41`,
   colorPrincipal: `#00F34A`,
   colorSecondary: `#DAC1FF`,
+  colorSelect: "#BF94FF",
   bpmaggie: `240px`,
   bplisa: `480px`,
   bpbart: `768px`,

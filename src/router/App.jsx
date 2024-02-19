@@ -8,9 +8,12 @@ import { Device } from "../styles/breakpoints";
 import MenuHamburger from "../components/organismos/sidebar/MenuHamburger";
 
 function App() {
-  const { routesList } = useApp();
+  const { routesList, loadingUser } = useApp();
   const [isOpenSideBar, setIsOpenSideBar] = useState(false);
   const { pathname } = useLocation();
+  if (loadingUser) {
+    return <h1>Cargando</h1>;
+  }
   return (
     <>
       {pathname != "/signIn" ? (
