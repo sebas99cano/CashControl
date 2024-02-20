@@ -19,7 +19,6 @@ const Container = styled.div`
   left: 0;
   z-index: 100;
   background-color: ${({ theme }) => theme.gbTotal};
-
   .spinner {
     border: 10px solid rgba(0, 0, 0, 0.1);
     width: 100px;
