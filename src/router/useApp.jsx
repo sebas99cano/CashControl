@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Route } from "react-router-dom";
+import { Route, useLocation } from "react-router-dom";
 import { auth } from "../api/firebase/Auth";
 import { MyRoutes } from "./routes";
 import { AuthContext } from "../context/AuthContext";
@@ -11,6 +11,8 @@ const useApp = () => {
   const [authState, authDispatch] = useContext(AuthContext);
   const [, themeDispatch] = useContext(UserThemeContext);
   const [loadingUser, setLoadingUser] = useState(true);
+  const [isOpenSideBar, setIsOpenSideBar] = useState(false);
+  const { pathname } = useLocation();
 
   useEffect(() => {
     if (authState.uid === "") {
@@ -67,7 +69,7 @@ const useApp = () => {
   };
 
   const routesList = getRoutes(MyRoutes({ authState }));
-  return { routesList, loadingUser };
+  return { routesList, loadingUser, isOpenSideBar, pathname, setIsOpenSideBar };
 };
 
 export default useApp;

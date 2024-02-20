@@ -1,18 +1,18 @@
-import { Routes, useLocation } from "react-router-dom";
-import { Suspense, useState } from "react";
-
+import { Routes } from "react-router-dom";
+import { Suspense } from "react";
+import { Device } from "../styles/breakpoints";
 import useApp from "./useApp";
 import styled from "styled-components";
 import SideBar from "../components/organismos/sidebar/SideBar";
-import { Device } from "../styles/breakpoints";
 import MenuHamburger from "../components/organismos/sidebar/MenuHamburger";
+import Spinner from "../components/moleculas/Spinner";
 
 function App() {
-  const { routesList, loadingUser } = useApp();
-  const [isOpenSideBar, setIsOpenSideBar] = useState(false);
-  const { pathname } = useLocation();
+  const { routesList, loadingUser, isOpenSideBar, pathname, setIsOpenSideBar } =
+    useApp();
+
   if (loadingUser) {
-    return <h1>Cargando</h1>;
+    return <Spinner />;
   }
   return (
     <>
@@ -25,9 +25,7 @@ function App() {
             <MenuHamburger />
           </div>
           <ContainerBody>
-            <Suspense
-              fallback={<div style={{ background: "red" }}>cargando</div>}
-            >
+            <Suspense fallback={<Spinner />}>
               <Routes>{routesList}</Routes>
             </Suspense>
           </ContainerBody>
