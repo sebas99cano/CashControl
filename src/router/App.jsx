@@ -25,7 +25,9 @@ function App() {
             <MenuHamburger />
           </div>
           <ContainerBody>
-            <Suspense fallback={<></>}>
+            <Suspense
+              fallback={<div style={{ background: "red" }}>cargando</div>}
+            >
               <Routes>{routesList}</Routes>
             </Suspense>
           </ContainerBody>

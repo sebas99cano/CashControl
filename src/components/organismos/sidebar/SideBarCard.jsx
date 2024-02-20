@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { SaveButton } from "../../moleculas/SaveButton";
+import SaveButton from "../../moleculas/SaveButton";
 import { variables } from "../../../styles/variables";
 
 const SideBarCard = () => {

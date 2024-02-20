@@ -21,6 +21,7 @@ const Home = lazy(() => import("../pages/home/Home"));
 const Configuration = lazy(() =>
   import("../pages/configuration/Configuration")
 );
+const Categories = lazy(() => import("../pages/categories/Categories"));
 export const MyRoutes = ({ authState }) => [
   {
     path: "/",
@@ -48,7 +49,7 @@ export const MyRoutes = ({ authState }) => [
     isDropdownMenu: false,
     element: (
       <PrivateRoute authState={authState}>
-        <h1>Categorías</h1>
+        <Categories />
       </PrivateRoute>
     ),
   },

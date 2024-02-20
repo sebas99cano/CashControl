@@ -1,49 +1,26 @@
 import styled from "styled-components";
-import { Header } from "../organismos/Header";
-import { useContext, useState } from "react";
-import Select from "../organismos/Select";
-import { variables } from "../../styles/variables";
-import { UserThemeContext } from "../../context/ThemeContext";
-import GenericList from "../moleculas/GenericList";
 import { LanguageData, ThemeData } from "../../api/static/StaticData";
-import { SaveButton } from "../moleculas/SaveButton";
-import SettingsClass from "../../class/user/SettingsClass";
-import { AuthContext } from "../../context/AuthContext";
-import UserService from "../../api/user/UserService";
+import { variables } from "../../styles/variables";
+
+import Select from "../organismos/Select";
+import GenericList from "../moleculas/GenericList";
+import Header from "../organismos/Header";
+import SaveButton from "../moleculas/SaveButton";
 import ClickOutsideHandler from "../../utils/ClickOutsideHandler";
 
-const ConfigurationTemplate = () => {
-  const [authState] = useContext(AuthContext);
-  const [themeState, themeDispatch] = useContext(UserThemeContext);
-  const [isOpenDropdown, setIsOpenDropdown] = useState(false);
-
-  const [themeListState, setThemeListState] = useState(false);
-  const [themeSelected, setThemeSelected] = useState(
-    ThemeData.find((theme) => theme.value === themeState.themeClass)
-  );
-
-  const [languageListState, setLanguageListState] = useState(false);
-  const [languageSelected, setLanguageSelected] = useState(
-    LanguageData.find((theme) => theme.value === themeState.language)
-  );
-
-  const editSettings = () => {
-    const settingToEdit = new SettingsClass(
-      themeSelected.value,
-      languageSelected.value
-    ).state;
-
-    UserService.updateUserSettings(settingToEdit, authState.uid)
-      .then((response) => {
-        themeDispatch({
-          type: response.themePreference,
-        });
-        themeDispatch({
-          type: response.languagePreference,
-        });
-      })
-      .catch((error) => console.error(error));
-  };
+const ConfigurationTemplate = ({
+  isOpenDropdown,
+  themeListState,
+  themeSelected,
+  languageListState,
+  languageSelected,
+  setLanguageSelected,
+  setLanguageListState,
+  setThemeSelected,
+  setThemeListState,
+  setIsOpenDropdown,
+  editSettings,
+}) => {
   return (
     <Container>
       <header className="header">

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Icon } from "../atomos/Icon";
 
-export const SaveButton = ({ buttonFunction, title, bgColor, icon }) => (
+const SaveButton = ({ buttonFunction, title, bgColor, icon }) => (
   <Container $bgColor={bgColor}>
     <Icon>{icon}</Icon>
     <span className="btn" onClick={buttonFunction}>
@@ -40,3 +40,5 @@ const Container = styled.button`
     }
   }
 `;
+
+export default SaveButton;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Header } from "../organismos/Header";
+import Header from "../organismos/Header";
 import { useState } from "react";
 
 const BaseTemplate = () => {

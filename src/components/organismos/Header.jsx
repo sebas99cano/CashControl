@@ -2,7 +2,7 @@ import { ContentHeader } from "../atomos/ContentHeader";
 import UserData from "./UserData";
 import ClickOutsideHandler from "../../utils/ClickOutsideHandler";
 
-export function Header({ dropdownConfig }) {
+const Header = ({ dropdownConfig }) => {
   return (
     <ContentHeader>
       <ClickOutsideHandler
@@ -13,4 +13,5 @@ export function Header({ dropdownConfig }) {
       </ClickOutsideHandler>
     </ContentHeader>
   );
-}
+};
+export default Header;
