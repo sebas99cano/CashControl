@@ -16,7 +16,7 @@ export const PublicRoute = ({ authState, children }) => {
   return authState.uid ? <Navigate to={"/"} /> : children;
 };
 
-const LogIn = lazy(() => import("../pages/signIn/SignIn"));
+const SignIn = lazy(() => import("../pages/signIn/SignIn"));
 const Home = lazy(() => import("../pages/home/Home"));
 const Configuration = lazy(() =>
   import("../pages/configuration/Configuration")
@@ -169,7 +169,7 @@ export const MyRoutes = ({ authState }) => [
     isDropdownMenu: false,
     element: (
       <PublicRoute authState={authState}>
-        <LogIn />
+        <SignIn />
       </PublicRoute>
     ),
   },
