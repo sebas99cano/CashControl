@@ -23,7 +23,7 @@ import { AiOutlineCalculator } from "react-icons/ai";
 import { BsCalendarCheck } from "react-icons/bs";
 import { IoIosArrowForward } from "react-icons/io";
 
-import logo from "../assets/logoPig.png";
+import logo from "../assets/logo.png";
 import fondo from "../assets/fondo.svg";
 
 export const variables = {
@@ -44,12 +44,12 @@ export const variables = {
   colorExpenses: `#fe6156`,
   colorBgExpenses: `#fbcbc9`,
   colorError: `#F54E41`,
-  colorSuccess: `#9046FF`,
+  colorSuccess: `#aa5102`,
   green: `#53B257`,
   red: `#F54E41`,
   colorPrincipal: `#00F34A`,
-  colorSecondary: `#DAC1FF`,
-  colorSelect: "#BF94FF",
+  colorSecondary: `#F2C84B`,
+  colorSelect: "#F29422",
   bpmaggie: `240px`,
   bplisa: `480px`,
   bpbart: `768px`,

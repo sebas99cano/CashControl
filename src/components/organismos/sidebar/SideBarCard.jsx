@@ -11,7 +11,7 @@ const SideBarCard = () => {
         <div className="circle2" />
         <h3>Centro de ayuda</h3>
         <div className="contentBtn">
-          <SaveButton title="Contactar" bgColor="#f8f2fd" />
+          <SaveButton title="Contactar" bgColor={variables.colorSelect} />
         </div>
       </div>
     </Container>

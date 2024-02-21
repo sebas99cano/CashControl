@@ -78,7 +78,7 @@ const Container = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 35px;
+      width: 40px;
       cursor: pointer;
       transition: all 0.5s ease-in-out;
       transform: ${({ $isOpen }) => ($isOpen ? `scale(0.9)` : `scale(1)`)}
