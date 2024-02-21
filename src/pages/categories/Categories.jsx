@@ -1,9 +1,21 @@
-import { useState } from "react";
 import styled from "styled-components";
 import Header from "../../components/organismos/Header";
+import ContentFilters from "../../components/atomos/ContentFilters";
+import DropdownButton from "../../components/moleculas/DropdownButton";
+import useCategories from "./useCategories";
+import DropdownMenu from "../../components/moleculas/DropdownMenu";
+import ClickOutsideHandler from "../../utils/ClickOutsideHandler";
 
 const Categories = () => {
-  const [isOpenDropdown, setIsOpenDropdown] = useState(false);
+  const {
+    isOpenDropdown,
+    categoryOptions,
+    categorySelected,
+    isOpenCategories,
+    handleCategorySelect,
+    setIsOpenDropdown,
+    setIsOpenCategories,
+  } = useCategories();
   return (
     <Container>
       <header className="header">
@@ -14,7 +26,30 @@ const Categories = () => {
           }}
         />
       </header>
-      <section className="area1"></section>
+      <section className="type">
+        <ContentFilters>
+          <ClickOutsideHandler
+            isOpen={isOpenCategories}
+            onClose={() => setIsOpenCategories(!isOpenCategories)}
+          >
+            <DropdownButton
+              bgColor={categorySelected.bgColor}
+              textColor={categorySelected.textColor}
+              name={categorySelected.name}
+              functionDropdownButton={() =>
+                setIsOpenCategories(!isOpenCategories)
+              }
+            />
+          </ClickOutsideHandler>
+          {isOpenCategories && (
+            <DropdownMenu
+              data={categoryOptions}
+              top={"110%"}
+              functionOnClick={handleCategorySelect}
+            />
+          )}
+        </ContentFilters>
+      </section>
       <section className="area2"></section>
       <section className="main"></section>
     </Container>
@@ -37,25 +72,21 @@ const Container = styled.div`
 
   .header {
     grid-area: header;
-    background-color: rgba(103, 93, 241, 0.14);
     display: flex;
     align-items: center;
   }
-  .area1 {
+  .type {
     grid-area: area1;
-    background-color: rgba(229, 67, 26, 0.14);
     display: flex;
     align-items: center;
   }
   .area2 {
     grid-area: area2;
-    background-color: rgba(77, 237, 106, 0.14);
     display: flex;
     align-items: center;
   }
   .main {
     grid-area: main;
-    background-color: rgba(179, 46, 241, 0.14);
   }
 `;
 

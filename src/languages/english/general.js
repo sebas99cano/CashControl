@@ -17,6 +17,10 @@ export const generalDictionary = {
   LANGUAGE: "Language",
   SAVE: "Save",
 
+  //CATEGORIES
+  CATEGORY_EXPENSES: "Expense Categories",
+  CATEGORY_EARNINGS: "Earnings Categories",
+
   //SIDEBAR
   HOME: "Home",
   CATEGORIES: "Categories",

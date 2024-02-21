@@ -9,7 +9,7 @@ const DropdownMenu = ({ data, functionOnClick, top }) => {
         <DropdownMenuItem
           key={item.name}
           item={item}
-          functionOnClick={() => functionOnClick(item.path)}
+          functionOnClick={() => functionOnClick(item)}
         />
       ))}
     </Container>

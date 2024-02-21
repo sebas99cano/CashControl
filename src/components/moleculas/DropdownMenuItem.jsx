@@ -16,11 +16,12 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
+  font-size: 15px;
   &:hover {
     background-color: ${({ theme }) => theme.bg4};
   }
   svg {
-    font-size: 25px;
+    font-size: 24px;
     display: block;
   }
 `;
