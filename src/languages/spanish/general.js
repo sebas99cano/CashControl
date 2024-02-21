@@ -17,6 +17,9 @@ export const generalDictionary = {
   LANGUAGE: "Lenguaje",
   SAVE: "Guardar",
 
+  //CATEGORIES
+  CATEGORY_EXPENSES: "Categorías gastos",
+  CATEGORY_EARNINGS: "Categorías ingresos",
   //SIDEBAR
   HOME: "Home",
   CATEGORIES: "Categorías",

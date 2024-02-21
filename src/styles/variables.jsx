@@ -7,7 +7,7 @@ import { BiUserCircle } from "react-icons/bi";
 import { RiSettings3Line } from "react-icons/ri";
 import { MdExitToApp } from "react-icons/md";
 import { FcPicture } from "react-icons/fc";
-import { CgMathPlus } from "react-icons/cg";
+import { CgMathPlus, CgMathMinus } from "react-icons/cg";
 import { TbBrandSupabase } from "react-icons/tb";
 import { FaReact } from "react-icons/fa";
 import { BsArrowDown, BsArrowUpShort } from "react-icons/bs";
@@ -69,6 +69,7 @@ export const variables = {
   iconSettings: RiSettings3Line,
   iconCloseSession: MdExitToApp,
   iconEmptyPicture: FcPicture,
+  iconMinus: CgMathMinus,
   iconAdd: CgMathPlus,
   iconSupabase: TbBrandSupabase,
   iconReact: FaReact,

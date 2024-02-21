@@ -16,7 +16,7 @@ const UserData = ({ dropdownConfig }) => {
   const dropdownMenuOptions = MyRoutes({ authState, generalDictionary }).filter(
     (item) => item.isDropdownMenu
   );
-  const functionOnClick = (path) => navigate(path);
+  const functionOnClick = (item) => navigate(item.path);
   return (
     <Container onClick={dropdownConfig.setIsOpenDropdown}>
       <div className="imageContainer">
@@ -37,7 +37,7 @@ const UserData = ({ dropdownConfig }) => {
       {dropdownConfig.isOpenDropdown && (
         <DropdownMenu
           data={dropdownMenuOptions}
-          functionOnClick={(path) => functionOnClick(path)}
+          functionOnClick={functionOnClick}
           top={"61px"}
         />
       )}

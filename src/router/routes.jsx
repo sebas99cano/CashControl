@@ -102,7 +102,7 @@ export const MyRoutes = ({ authState, generalDictionary }) => [
     path: "/config",
     name: "configuration",
     icon: <AiOutlineSetting />,
-    text: generalDictionary.DASHBOARD,
+    text: generalDictionary.CONFIGURATION,
     disabled: false,
     isHidden: false,
     children: null,
