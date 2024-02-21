@@ -16,7 +16,7 @@ function App() {
   }
   return (
     <>
-      {pathname != "/signIn" ? (
+      {pathname != "/login" ? (
         <Container className={isOpenSideBar ? "active" : ""}>
           <div className="contentSideBar">
             <SideBar state={isOpenSideBar} setState={setIsOpenSideBar} />

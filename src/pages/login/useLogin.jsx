@@ -1,6 +1,6 @@
 import { googleSignInFirebase } from "../../api/firebase/Auth";
 
-const useSignIn = () => {
+const useLogin = () => {
   const signInGoogle = () => {
     googleSignInFirebase()
       .then(() => {
@@ -14,4 +14,4 @@ const useSignIn = () => {
   return { signInGoogle };
 };
 
-export default useSignIn;
+export default useLogin;

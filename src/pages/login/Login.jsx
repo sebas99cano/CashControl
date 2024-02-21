@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import useSignIn from "./useSignIn";
+import useLogin from "./useLogin";
 import SaveButton from "../../components/moleculas/SaveButton";
 import { variables } from "../../styles/variables";
 
-const SignIn = () => {
-  const { signInGoogle } = useSignIn();
+const Login = () => {
+  const { signInGoogle } = useLogin();
 
   return (
     <Container $image={variables.bgImage}>
@@ -87,4 +87,4 @@ const Title = styled.div`
   font-weight: 700;
 `;
 
-export default SignIn;
+export default Login;

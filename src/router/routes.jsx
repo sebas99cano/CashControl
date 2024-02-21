@@ -10,14 +10,14 @@ import { RiDashboard3Line } from "react-icons/ri";
 import { TbPig } from "react-icons/tb";
 import { BiUserCircle } from "react-icons/bi";
 export const PrivateRoute = ({ authState, children }) => {
-  return authState.uid ? children : <Navigate to={"/signIn"} />;
+  return authState.uid ? children : <Navigate to={"/login"} />;
 };
 export const PublicRoute = ({ authState, children }) => {
   return authState.uid ? <Navigate to={"/"} /> : children;
 };
 
 const Home = lazy(() => import("../pages/home/Home"));
-('const SignIn = lazy(() => import("../pages/signin/SignIn"));');
+const Login = lazy(() => import("../pages/login/Login"));
 const Configuration = lazy(() =>
   import("../pages/configuration/Configuration")
 );
@@ -159,8 +159,8 @@ export const MyRoutes = ({ authState }) => [
     ),
   },
   {
-    path: "/signIn",
-    name: "signIn",
+    path: "/login",
+    name: "login",
     icon: null,
     text: "",
     disabled: false,
@@ -169,7 +169,7 @@ export const MyRoutes = ({ authState }) => [
     isDropdownMenu: false,
     element: (
       <PublicRoute authState={authState}>
-        <h1></h1>
+        <Login />
       </PublicRoute>
     ),
   },
