@@ -5,10 +5,13 @@ import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../../context/AuthContext";
 import SideBarCard from "./SideBarCard";
+import { UserThemeContext } from "../../../context/ThemeContext";
 
 const SideBar = ({ state, setState }) => {
   const [authState] = useContext(AuthContext);
-  const routesList = MyRoutes({ authState });
+  const [themeState] = useContext(UserThemeContext);
+  const { generalDictionary } = themeState;
+  const routesList = MyRoutes({ authState, generalDictionary });
   return (
     <Main $isOpen={state}>
       <span className="sidebarButton" onClick={() => setState(!state)}>

@@ -4,22 +4,20 @@ import SaveButton from "../../components/moleculas/SaveButton";
 import { variables } from "../../styles/variables";
 
 const Login = () => {
-  const { signInGoogle } = useLogin();
+  const { signInGoogle, generalDictionary } = useLogin();
 
   return (
     <Container $image={variables.bgImage}>
       <div className="contentCard">
-        <span className="version">version 1.0</span>
+        <span className="version">{generalDictionary.VERSION}</span>
         <div className="contentImg">
           <img src={variables.logo} />
         </div>
-        <Title>Cash Control</Title>
-        <p className="description">
-          Toma el control de tu 💰 y empieza a controlar tus gastos.
-        </p>
+        <Title>{generalDictionary.CASH_CONTROL}</Title>
+        <p className="description">{generalDictionary.LOGIN_DESCRIPTION}</p>
         <ContainerBtn>
           <SaveButton
-            title={"Iniciar con Google"}
+            title={generalDictionary.LOGIN_GOOGLE}
             icon={<variables.iconGoogle />}
             bgColor={variables.colorSecondary}
             buttonFunction={signInGoogle}

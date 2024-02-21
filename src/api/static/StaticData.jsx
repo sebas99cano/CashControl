@@ -22,4 +22,9 @@ export const LanguageData = [
     name: "English",
     value: "SWITCH_TO_ENGLISH",
   },
+  {
+    icon: "🥐",
+    name: "Français",
+    value: "SWITCH_TO_FRENCH",
+  },
 ];
