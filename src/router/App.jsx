@@ -6,8 +6,11 @@ import styled from "styled-components";
 import SideBar from "../components/organismos/sidebar/SideBar";
 import MenuHamburger from "../components/organismos/sidebar/MenuHamburger";
 import Spinner from "../components/moleculas/Spinner";
+import ReactGA from "react-ga";
 
 function App() {
+  ReactGA.initialize("G-3QFSTMT461");
+
   const { routesList, loadingUser, isOpenSideBar, pathname, setIsOpenSideBar } =
     useApp();
 

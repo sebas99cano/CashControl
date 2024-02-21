@@ -6,10 +6,8 @@ import { AuthContext } from "../context/AuthContext";
 import { UserThemeContext } from "../context/ThemeContext";
 import UserClass from "../class/user/UserClass";
 import UserService from "../api/user/UserService";
-import ReactGA from "react-ga";
-const useApp = () => {
-  ReactGA.initialize("G-3QFSTMT461");
 
+const useApp = () => {
   const [authState, authDispatch] = useContext(AuthContext);
   const [themeState, themeDispatch] = useContext(UserThemeContext);
   const { generalDictionary } = themeState;
