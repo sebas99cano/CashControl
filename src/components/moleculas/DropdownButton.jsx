@@ -24,6 +24,8 @@ const Container = styled.div`
   display: flex;
   background-color: ${(props) => props.$bgColor};
   color: ${(props) => props.$textColor};
+  border-color: ${(props) => props.$textColor};
+  border: solid 1px;
   font-weight: 500;
   font-size: 22px;
   padding: 12px 32px;

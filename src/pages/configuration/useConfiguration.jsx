@@ -4,6 +4,7 @@ import { UserThemeContext } from "../../context/ThemeContext";
 import { LanguageData, ThemeData } from "../../api/static/StaticData";
 import SettingsClass from "../../class/user/SettingsClass";
 import UserService from "../../api/user/UserService";
+import ReactGA from "react-ga";
 
 const useConfiguration = () => {
   const [authState] = useContext(AuthContext);
@@ -30,6 +31,11 @@ const useConfiguration = () => {
 
     UserService.updateUserSettings(settingToEdit, authState.uid)
       .then((response) => {
+        ReactGA.event({
+          category: "Update Profile",
+          action: "Submit",
+          label: authState.email,
+        });
         themeDispatch({
           type: response.themePreference,
         });

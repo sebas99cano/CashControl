@@ -36,7 +36,7 @@ const Configuration = () => {
         />
       </header>
       <section className="area2">
-        <h1>{generalDictionary.SETTINGS}</h1>
+        <h1>{generalDictionary.CONFIGURATION}</h1>
         <ClickOutsideHandler
           isOpen={themeListState}
           onClose={() => setThemeListState(false)}
