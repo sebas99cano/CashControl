@@ -15,5 +15,5 @@ jobs:
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_CASHCONTROL_E9FE6 }}"
-          channelId: live
           projectId: cashcontrol-e9fe6
+          targets: site-cashcontrol, site-cashc

@@ -5,10 +5,10 @@
   "targets": {
     "cashcontrol-e9fe6": {
       "hosting": {
-        "cashcontrol-e9fe6": [
+        "site-cashcontrol": [
           "cashcontrol-e9fe6"
         ],
-        "cashc": [
+        "site-cashc": [
           "cashc"
         ]
       }

@@ -1,10 +1,10 @@
 {
   "hosting": [
     {
-      "target": "cashcontrol-e9fe6",
+      "target": "site-cashcontrol",
       "public": "dist",
-      "predeploy": ["npm install", "npm run build"],
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "predeploy": ["npm install", "npm run build"],
       "rewrites": [
         {
           "source": "**",
@@ -13,9 +13,10 @@
       ]
     },
     {
-      "target": "cashc",
+      "target": "site-cashc",
       "public": "dist",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "predeploy": ["npm install", "npm run build"],
       "rewrites": [
         {
           "source": "**",
