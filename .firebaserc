@@ -1,17 +1,5 @@
 {
   "projects": {
     "default": "cashcontrol-e9fe6"
-  },
-  "targets": {
-    "cashcontrol-e9fe6": {
-      "hosting": {
-        "site-cashcontrol": [
-          "cashcontrol-e9fe6"
-        ],
-        "site-cashc": [
-          "cashc"
-        ]
-      }
-    }
   }
 }
