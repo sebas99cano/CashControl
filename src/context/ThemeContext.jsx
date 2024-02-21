@@ -23,7 +23,7 @@ const UserThemeReducer = (state = initialState, action) => {
     case "SWITCH_TO_ENGLISH":
       return { ...state, language: "SWITCH_TO_ENGLISH", ...english };
     case "SWITCH_TO_FRENCH":
-      return { ...state, language: "SWITCH_TO_ENGLISH", ...french };
+      return { ...state, language: "SWITCH_TO_FRENCH", ...french };
     case "SWITCH_TO_SPANISH":
       return { ...state, language: "SWITCH_TO_SPANISH", ...spanish };
     default:
