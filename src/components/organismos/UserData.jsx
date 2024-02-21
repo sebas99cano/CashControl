@@ -6,11 +6,14 @@ import { variables } from "../../styles/variables";
 import DropdownMenu from "../moleculas/DropdownMenu";
 import { MyRoutes } from "../../router/routes";
 import { useNavigate } from "react-router-dom";
+import { UserThemeContext } from "../../context/ThemeContext";
 
 const UserData = ({ dropdownConfig }) => {
   const [authState] = useContext(AuthContext);
+  const [themeState] = useContext(UserThemeContext);
+  const { generalDictionary } = themeState;
   const navigate = useNavigate();
-  const dropdownMenuOptions = MyRoutes({ authState }).filter(
+  const dropdownMenuOptions = MyRoutes({ authState, generalDictionary }).filter(
     (item) => item.isDropdownMenu
   );
   const functionOnClick = (path) => navigate(path);

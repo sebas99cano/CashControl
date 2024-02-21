@@ -9,7 +9,8 @@ import UserService from "../api/user/UserService";
 
 const useApp = () => {
   const [authState, authDispatch] = useContext(AuthContext);
-  const [, themeDispatch] = useContext(UserThemeContext);
+  const [themeState, themeDispatch] = useContext(UserThemeContext);
+  const { generalDictionary } = themeState;
   const [loadingUser, setLoadingUser] = useState(true);
   const [isOpenSideBar, setIsOpenSideBar] = useState(false);
   const { pathname } = useLocation();
@@ -68,7 +69,7 @@ const useApp = () => {
     });
   };
 
-  const routesList = getRoutes(MyRoutes({ authState }));
+  const routesList = getRoutes(MyRoutes({ authState, generalDictionary }));
   return { routesList, loadingUser, isOpenSideBar, pathname, setIsOpenSideBar };
 };
 

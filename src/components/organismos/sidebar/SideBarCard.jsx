@@ -1,17 +1,24 @@
 import styled from "styled-components";
 import SaveButton from "../../moleculas/SaveButton";
 import { variables } from "../../../styles/variables";
+import { useContext } from "react";
+import { UserThemeContext } from "../../../context/ThemeContext";
 
 const SideBarCard = () => {
+  const [themeState] = useContext(UserThemeContext);
+  const { generalDictionary } = themeState;
   return (
     <Container>
       <span className="icon">{<variables.iconHelp />}</span>
       <div className="cardContent">
         <div className="circle1" />
         <div className="circle2" />
-        <h3>Centro de ayuda</h3>
+        <h3>{generalDictionary.HELP_CENTER}</h3>
         <div className="contentBtn">
-          <SaveButton title="Contactar" bgColor={variables.colorSelect} />
+          <SaveButton
+            title={generalDictionary.CONTACT}
+            bgColor={variables.colorSelect}
+          />
         </div>
       </div>
     </Container>

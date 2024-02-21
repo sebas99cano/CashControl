@@ -1,6 +1,8 @@
 import { createContext, useReducer } from "react";
 
 import spanish from "../languages/spanish";
+import french from "../languages/french";
+import english from "../languages/english";
 import { Dark, Light } from "../styles/theme";
 import { ThemeProvider } from "styled-components";
 export const UserThemeContext = createContext(null);
@@ -19,7 +21,9 @@ const UserThemeReducer = (state = initialState, action) => {
     case "LIGHT_MODE":
       return { ...state, themeClass: "LIGHT_MODE", themeStyle: Light };
     case "SWITCH_TO_ENGLISH":
-      return { ...state, language: "SWITCH_TO_ENGLISH", ...spanish };
+      return { ...state, language: "SWITCH_TO_ENGLISH", ...english };
+    case "SWITCH_TO_FRENCH":
+      return { ...state, language: "SWITCH_TO_ENGLISH", ...french };
     case "SWITCH_TO_SPANISH":
       return { ...state, language: "SWITCH_TO_SPANISH", ...spanish };
     default:

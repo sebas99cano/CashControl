@@ -17,6 +17,7 @@ const Configuration = () => {
     themeSelected,
     languageListState,
     languageSelected,
+    generalDictionary,
     setLanguageSelected,
     setLanguageListState,
     setThemeSelected,
@@ -35,13 +36,13 @@ const Configuration = () => {
         />
       </header>
       <section className="area2">
-        <h1>Ajustes</h1>
+        <h1>{generalDictionary.SETTINGS}</h1>
         <ClickOutsideHandler
           isOpen={themeListState}
           onClose={() => setThemeListState(false)}
         >
           <ContentCard>
-            <span>Tema:</span>
+            <span>{generalDictionary.THEME}</span>
             <Select
               text1={`${themeSelected.icon} ${themeSelected.name}`}
               color={variables.colorSelect}
@@ -62,7 +63,7 @@ const Configuration = () => {
           onClose={() => setLanguageListState(false)}
         >
           <ContentCard>
-            <span>Idioma:</span>
+            <span>{generalDictionary.LANGUAGE}</span>
             <Select
               text1={`${languageSelected.icon} ${languageSelected.name}`}
               color={variables.colorSelect}
@@ -80,7 +81,7 @@ const Configuration = () => {
         </ClickOutsideHandler>
 
         <SaveButton
-          title={"Guardar"}
+          title={generalDictionary.SAVE}
           bgColor={variables.colorSelect}
           icon={<variables.iconSave />}
           buttonFunction={editSettings}

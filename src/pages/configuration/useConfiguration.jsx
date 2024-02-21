@@ -8,6 +8,8 @@ import UserService from "../../api/user/UserService";
 const useConfiguration = () => {
   const [authState] = useContext(AuthContext);
   const [themeState, themeDispatch] = useContext(UserThemeContext);
+  const { generalDictionary } = themeState;
+
   const [isOpenDropdown, setIsOpenDropdown] = useState(false);
 
   const [themeListState, setThemeListState] = useState(false);
@@ -43,6 +45,7 @@ const useConfiguration = () => {
     themeSelected,
     languageListState,
     languageSelected,
+    generalDictionary,
     setLanguageSelected,
     setLanguageListState,
     setThemeSelected,
