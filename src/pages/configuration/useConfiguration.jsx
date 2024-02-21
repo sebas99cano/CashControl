@@ -34,7 +34,7 @@ const useConfiguration = () => {
         ReactGA.event({
           category: "Update Profile",
           action: "Submit",
-          label: authState.email,
+          label: themeState.themeClass,
         });
         themeDispatch({
           type: response.themePreference,
