@@ -5,6 +5,8 @@ import DropdownButton from "../../components/moleculas/DropdownButton";
 import useCategories from "./useCategories";
 import DropdownMenu from "../../components/moleculas/DropdownMenu";
 import ClickOutsideHandler from "../../utils/ClickOutsideHandler";
+import AddButton from "../../components/moleculas/AddButton";
+import { variables } from "../../styles/variables";
 
 const Categories = () => {
   const {
@@ -49,6 +51,12 @@ const Categories = () => {
             />
           )}
         </ContentFilters>
+        <AddButton
+          bgColor={categorySelected.bgColor}
+          textColor={categorySelected.textColor}
+          icon={<variables.iconAdd />}
+          functionAddButton={() => {}}
+        />
       </section>
       <section className="area2"></section>
       <section className="main"></section>
@@ -79,6 +87,7 @@ const Container = styled.div`
     grid-area: area1;
     display: flex;
     align-items: center;
+    justify-content: space-between;
   }
   .area2 {
     grid-area: area2;

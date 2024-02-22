@@ -57,6 +57,8 @@ const Container = styled.div`
   border-radius: 50px;
   margin: 15px;
   cursor: pointer;
+  background-color: ${({ theme }) => theme.bg3};
+  transition: 0.3s;
   .imageContainer {
     height: 40px;
     width: 40px;
@@ -74,7 +76,7 @@ const Container = styled.div`
     }
   }
   &:hover {
-    background-color: ${({ theme }) => theme.bg3};
+    background-color: ${({ theme }) => theme.bg4};
   }
   .userName {
     width: 100%;
