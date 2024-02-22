@@ -6,7 +6,7 @@ import styled from "styled-components";
 import SideBar from "../components/organismos/sidebar/SideBar";
 import MenuHamburger from "../components/organismos/sidebar/MenuHamburger";
 import Spinner from "../components/moleculas/Spinner";
-import ReactGA from "react-ga";
+import ReactGA from "react-ga4";
 
 function App() {
   ReactGA.initialize("G-3QFSTMT461");

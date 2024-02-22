@@ -4,7 +4,7 @@ import { UserThemeContext } from "../../context/ThemeContext";
 import { LanguageData, ThemeData } from "../../api/static/StaticData";
 import SettingsClass from "../../class/user/SettingsClass";
 import UserService from "../../api/user/UserService";
-import ReactGA from "react-ga";
+import ReactGA from "react-ga4";
 
 const useConfiguration = () => {
   const [authState] = useContext(AuthContext);
