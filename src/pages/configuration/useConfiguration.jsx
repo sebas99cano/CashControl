@@ -32,9 +32,10 @@ const useConfiguration = () => {
     UserService.updateUserSettings(settingToEdit, authState.uid)
       .then((response) => {
         ReactGA.event({
-          category: "Update Profile",
-          action: "Submit",
-          label: themeState.themeClass,
+          category: "event_update_profile",
+          action: "submit_update_profile",
+          label: themeState.themeClass, // optional
+          value: 1, // optional, must be a number
         });
         themeDispatch({
           type: response.themePreference,

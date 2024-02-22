@@ -9,7 +9,7 @@ import Spinner from "../components/moleculas/Spinner";
 import ReactGA from "react-ga4";
 
 function App() {
-  ReactGA.initialize("G-3QFSTMT461");
+  ReactGA.initialize("G-FDTX0LF9P4");
 
   const { routesList, loadingUser, isOpenSideBar, pathname, setIsOpenSideBar } =
     useApp();
